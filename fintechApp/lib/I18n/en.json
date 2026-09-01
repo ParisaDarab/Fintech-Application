@@ -1,0 +1,13 @@
+{
+  "common": {
+    "login": "Login",
+    "logout": "Logout",
+    "loading": "Loading...",
+    "empty":"Nothing is live right now."
+  },
+  "home": {
+    "title": "Live markets",
+    "empty": "Nothing is live right now.",
+    "error": "Something went wrong."
+  }
+}
