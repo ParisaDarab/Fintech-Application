@@ -1,0 +1,48 @@
+{
+  "errors": {
+    "AUTHENTICATION_ERROR": "Authentication failed.",
+    "AUTHORIZATION_ERROR": "You are not authorized to perform this action.",
+    "INVALID_CREDENTIALS": "Invalid username or password.",
+    "TOKEN_EXPIRED": "Your session token has expired.",
+    "TOKEN_INVALID": "The provided token is invalid.",
+    "TOKEN_MISSING": "Authentication token is missing.",
+
+    "VALIDATION_ERROR": "The request data is invalid.",
+    "INVALID_REQUEST": "The request is invalid.",
+    "MISSING_REQUIRED_FIELD": "A required field is missing.",
+    "INVALID_FIELD": "One or more fields contain invalid values.",
+    "INVALID_PARAMETER": "One or more parameters are invalid.",
+
+    "NOT_FOUND": "The requested resource was not found.",
+    "USER_NOT_FOUND": "User not found.",
+    "ACCOUNT_NOT_FOUND": "Account not found.",
+    "TRANSACTION_NOT_FOUND": "Transaction not found.",
+
+    "CONFLICT": "The request conflicts with the current state of the resource.",
+    "DUPLICATE_RESOURCE": "The resource already exists.",
+    "DUPLICATE_TRANSACTION": "The transaction already exists.",
+
+    "BAD_REQUEST": "The request could not be understood or processed.",
+    "METHOD_NOT_ALLOWED": "The requested HTTP method is not allowed.",
+    "UNSUPPORTED_MEDIA_TYPE": "The requested content type is not supported.",
+
+    "RATE_LIMIT_EXCEEDED": "Too many requests. Please try again later.",
+
+    "INSUFFICIENT_FUNDS": "Insufficient funds to complete the transaction.",
+    "ACCOUNT_LOCKED": "The account is locked.",
+    "ACCOUNT_SUSPENDED": "The account is suspended.",
+    "ACCOUNT_INACTIVE": "The account is inactive.",
+    "TRANSACTION_FAILED": "The transaction failed.",
+    "TRANSACTION_DECLINED": "The transaction was declined.",
+    "TRANSACTION_CANCELLED": "The transaction was cancelled.",
+
+    "SERVICE_UNAVAILABLE": "The service is temporarily unavailable.",
+    "GATEWAY_ERROR": "An error occurred while communicating with an external service.",
+    "EXTERNAL_SERVICE_ERROR": "An external service returned an error.",
+    "DATABASE_ERROR": "A database error occurred.",
+    "TIMEOUT_ERROR": "The request timed out.",
+
+    "INTERNAL_SERVER_ERROR": "An unexpected error occurred.",
+    "UNKNOWN_ERROR": "An unknown error occurred."
+  }
+}
