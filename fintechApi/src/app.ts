@@ -1,5 +1,4 @@
 import express from "express";
-
 import authRoutes from "./routes/auth.routes.js";
 import meRoutes from "./routes/me.routes.js";
 import adminRoutes from "./routes/admin.routes.js";

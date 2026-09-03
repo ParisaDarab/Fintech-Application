@@ -1,4 +1,4 @@
-import { NextFunction, Request, Response } from "express";
+import type { NextFunction, Request, Response } from "express";
 import Joi from "joi";
 
 export const validateRequest = (
@@ -16,6 +16,7 @@ export const validateRequest = (
     }
 
     req[source] = value;
-    next();
+
+    return next();
   };
 };

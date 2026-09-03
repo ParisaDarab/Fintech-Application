@@ -7,7 +7,7 @@ export const mockUser: User = {
   name: "Parisa Darab",
   email: "parisa.darab@example.com",
   passwordHash:
-    "argon2id$v=19$m=65536,p=4,t=3$e2BocBS2Zrc0lQihDgiYuQ$Jc1mPVptY/kGCWFdeIZUPolyquiXtvoKsw+MTbtohHU",
+    "$argon2id$v=19$m=65536,p=4,t=3$aiOGXX1ZK0hmjfJLAFAzfw$nKyziM7ORyMdYbS886jxXYPYQVEP/CDzfR0Hk2lRNwM",
   role: "user",
 };
 
@@ -17,7 +17,7 @@ export const mockUsers: User[] = [
     name: "Parisa Darab",
     email: "parisa.darab@example.com",
     passwordHash:
-      "argon2id$v=19$m=65536,p=4,t=3$e2BocBS2Zrc0lQihDgiYuQ$Jc1mPVptY/kGCWFdeIZUPolyquiXtvoKsw+MTbtohHU",
+      "$argon2id$v=19$m=65536,p=4,t=3$aiOGXX1ZK0hmjfJLAFAzfw$nKyziM7ORyMdYbS886jxXYPYQVEP/CDzfR0Hk2lRNwM",
     role: "user",
   },
 ];
@@ -26,9 +26,23 @@ export const mockAccounts: Account[] = [
   {
     id: "account-001",
     userId: "user-001",
-    accountNumber: "**** **** 4821",
+    accountNumber: "**** 4821",
     currency: "GBP",
     balance: 8450.75,
+  },
+  {
+    id: "account-002",
+    userId: "user-001",
+    accountNumber: "**** 7312",
+    currency: "GBP",
+    balance: 12500.0,
+  },
+  {
+    id: "account-003",
+    userId: "user-002",
+    accountNumber: "**** 9182",
+    currency: "USD",
+    balance: 5200.5,
   },
 ];
 

@@ -1,11 +1,11 @@
 export class CustomError extends Error {
   public statusCode: number;
-  public code: string;
+  public  error: { [key: string]: string };
   public success: boolean;
-
+  public message: string;
   constructor(
     statusCode: number,
-    code: string,
+    type:string,
     message: string,
     success: boolean,
   ) {
@@ -13,7 +13,8 @@ export class CustomError extends Error {
 
     this.name = "CustomError";
     this.statusCode = statusCode;
-    this.code = code;
+    this.error = { type };
+    this.message = message;
     this.success = success;
 
     Object.setPrototypeOf(this, CustomError.prototype);

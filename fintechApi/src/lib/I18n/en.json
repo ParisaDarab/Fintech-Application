@@ -1,0 +1,10 @@
+{
+  "success": {
+    "LOGIN_SUCCESS": "Login successful.",
+    "LOGOUT_SUCCESS": "Logout successful.",
+    "USER_RETRIEVED": "User retrieved successfully.",
+    "ACCOUNTS_RETRIEVED": "Accounts retrieved successfully.",
+    "TRANSACTIONS_RETRIEVED": "Transactions retrieved successfully.",
+    "TRANSACTION_RETRIEVED": "Transaction retrieved successfully."
+  }
+}

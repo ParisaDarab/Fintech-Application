@@ -25,12 +25,4 @@ export class CustomError extends Error {
 
 const hash = await argon2.hash("password123");
 
-console.log(
-  hash,
-  new CustomError(
-    401,
-    "INVALID_CREDENTIALS",
-    I18n.errors.INVALID_CREDENTIALS,
-    false,
-  ),
-);
+console.log(hash);

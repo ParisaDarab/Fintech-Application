@@ -1,35 +1,38 @@
 import type { Request, Response, NextFunction } from "express";
 import Joi from "joi";
-
+import { CustomError } from "../models/error.js";
+import I18n from "../lib/I18n/errors.json" with { type: "json" };
 export const errorMiddleware = (
-  err: unknown,
+  error: unknown,
   _req: Request,
   res: Response,
   _next: NextFunction,
 ) => {
   // Joi validation error
-  if (Joi.isError(err)) {
+  if (Joi.isError(error)) {
     return res.status(400).json({
-      success: false,
       error: {
-        type: "VALIDATION_ERROR",
-        details: err.details.map((detail) => ({
+        code: "VALIDATION_ERROR",
+        message: error.message,
+        details: error.details.map((detail) => ({
           field: detail.path.join("."),
           message: detail.message,
         })),
       },
-      message: "Invalid request data",
     });
   }
 
   // Unknown/unexpected error
-  console.error(err);
+  console.error(error);
 
-  return res.status(500).json({
-    success: false,
-    error: {
-      type: "INTERNAL_SERVER_ERROR",
-    },
-    message: "Internal server error",
-  });
+  return res
+    .status(500)
+    .json(
+      new CustomError(
+        500,
+        "INTERNAL_SERVER_ERROR",
+        I18n.errors.INTERNAL_SERVER_ERROR,
+        false,
+      ),
+    );
 };
