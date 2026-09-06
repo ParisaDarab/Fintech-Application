@@ -10,18 +10,20 @@ export const errorMiddleware = (
 ) => {
   // Joi validation error
   if (Joi.isError(error)) {
-    return res.status(400).json({
-      error: {
-        code: "VALIDATION_ERROR",
-        message: error.message,
-        details: error.details.map((detail) => ({
-          field: detail.path.join("."),
-          message: detail.message,
-        })),
-      },
-    });
+    const details = error.details.map((detail) => ({
+      field: detail.context?.key,
+      value: detail.context?.value,
+      message: detail.message,
+      type: detail.type,
+    }));
+    return res
+      .status(400)
+      .json(
+        new CustomError(400, "VALIDATION_ERROR", error.message, false, details),
+      );
   }
-
+  {
+  }
   // Unknown/unexpected error
   console.error(error);
 

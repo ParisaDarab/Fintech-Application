@@ -2,14 +2,15 @@ import type { InputHTMLAttributes } from "react";
 import { twMerge } from "tailwind-merge";
 
 type InputProps = InputHTMLAttributes<HTMLInputElement> & {
-  onChangeHandler?: (e: React.ChangeEvent<HTMLInputElement>) => void;
+  onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
 };
 
 export const Input = ({
-  onChangeHandler,
+  onChange,
   className = "",
   required = false,
   disabled = false,
+  value,
   type = "text",
   placeholder,
   ...props
@@ -50,10 +51,11 @@ export const Input = ({
     <input
       {...props}
       type={type}
+      value={value}
       required={required}
       disabled={disabled}
       placeholder={placeholder}
-      onChange={onChangeHandler}
+      onChange={onChange}
       className={inputClasses}
     />
   );

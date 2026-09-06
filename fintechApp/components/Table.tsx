@@ -1,5 +1,5 @@
 import React from "react";
-import { EmptyList } from "./emptyList";
+import { EmptyList } from "./EmptyList";
 
 type Column<T> = {
   title: string;

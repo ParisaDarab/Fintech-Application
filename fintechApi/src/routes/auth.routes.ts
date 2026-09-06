@@ -10,6 +10,7 @@ const loginSchema = Joi.object({
     .min(8)
     .pattern(/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*])/)
     .required(),
+  rememberMe: Joi.boolean(),
 }).required();
 router.post("/login", validateRequest(loginSchema, "body"), userLogin);
 

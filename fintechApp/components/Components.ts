@@ -65,3 +65,11 @@ export const StatusBadge = styled.span<{ $status: string }>`
         ? `background-color: #fef3c7; color: #92400e;`
         : `background-color: #fee2e2; color: #b91c1c;`}
 `;
+
+export const ErrorText = styled.p`
+  margin-top: 6px;
+  color: #f87171;
+  font-size: 0.75rem;
+  line-height: 1rem;
+  font-weight: 500;
+`;

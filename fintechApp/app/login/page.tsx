@@ -2,24 +2,42 @@
 
 import Link from "next/link";
 import { FormEvent, useState } from "react";
-
-import { Button } from "@/components/button";
-import { Input } from "@/components/input";
+import { Button } from "@/components/Button";
+import { Input } from "@/components/Input";
 import { Logo } from "@/components/Logo";
+import clientApi from "@/api/clientApi";
+import { apiList } from "@/api/apiList";
+import { ApiError, ApiErrorResponse } from "@/models/error";
+import { ErrorText } from "@/components/Components";
 
 const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [rememberMe, setRememberMe] = useState(false);
+  const [error, setError] = useState<ApiErrorResponse | null>(null);
 
-  const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
 
-    console.log({
-      email,
-      password,
-      rememberMe,
-    });
+    try {
+      const response = await clientApi({
+        ...apiList.authentication.login,
+        body: {
+          email,
+          password,
+          rememberMe,
+        },
+      });
+    } catch (apiError) {
+      if (apiError instanceof ApiError) {
+        const { statusCode, message, success, detail, error } = apiError;
+        setError({ statusCode, error, message, success, detail });
+
+        return;
+      }
+
+      console.error("Unknown error:", error);
+    }
   };
 
   return (
@@ -29,7 +47,10 @@ const Login = () => {
         <Logo />
 
         {/* Login Card */}
-        <div className="rounded-3xl border border-white/10 bg-white/5 p-8 shadow-2xl shadow-black/20 backdrop-blur-xl">
+        <div
+          className={`rounded-3xl border border-white/10 ${error ? " bg-red-700/20" : " bg-white/5"} p-8 shadow-2xl shadow-black/20 backdrop-blur-xl`}
+        >
+          {error && <ErrorText className="mb-5">{error.message}</ErrorText>}
           <form onSubmit={handleSubmit} className="flex flex-col gap-5">
             {/* Email */}
             <div>
