@@ -10,9 +10,6 @@ import { getMyTransaction } from "../controllers/transaction.controller.js";
 
 const router = Router();
 
-const getCurrentUserSchema = Joi.object({
-  userId: Joi.string().required(),
-}).required();
 const getMyAccountSchema = Joi.object({
   userId: Joi.string().required(),
 }).required();
@@ -26,7 +23,7 @@ const getMyTransactionSchema = Joi.object({
 }).required();
 
 router.use([authMiddleware, requireRole("user")]);
-router.post("/", validateRequest(getCurrentUserSchema, "body"), getCurrentUser);
+router.get("/", getCurrentUser);
 router.get(
   "/accounts",
   validateRequest(getMyAccountSchema, "body"),

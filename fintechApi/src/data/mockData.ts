@@ -7,7 +7,7 @@ export const mockUser: User = {
   name: "Parisa Darab",
   email: "parisa.darab@example.com",
   passwordHash:
-    "$argon2id$v=19$m=65536,p=4,t=3$aiOGXX1ZK0hmjfJLAFAzfw$nKyziM7ORyMdYbS886jxXYPYQVEP/CDzfR0Hk2lRNwM",
+    "$argon2id$v=19$m=65536,p=4,t=3$BUyITkRPeJmm8pV41QnejQ$+nGk0K3l4pApRFjsFebTvuHM6UOT9Pft4i7L+ntj2Qw",
   role: "user",
 };
 
@@ -17,7 +17,7 @@ export const mockUsers: User[] = [
     name: "Parisa Darab",
     email: "parisa.darab@example.com",
     passwordHash:
-      "$argon2id$v=19$m=65536,p=4,t=3$aiOGXX1ZK0hmjfJLAFAzfw$nKyziM7ORyMdYbS886jxXYPYQVEP/CDzfR0Hk2lRNwM",
+      "$argon2id$v=19$m=65536,p=4,t=3$BUyITkRPeJmm8pV41QnejQ$+nGk0K3l4pApRFjsFebTvuHM6UOT9Pft4i7L+ntj2Qw",
     role: "user",
   },
 ];

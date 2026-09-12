@@ -18,6 +18,7 @@ import {
   validateEmail,
   validatePassword,
 } from "@/utilities/validate";
+import { useRouter } from "next/navigation";
 
 type FieldErrors = {
   email?: string;
@@ -28,11 +29,9 @@ const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [rememberMe, setRememberMe] = useState(false);
-
+  const router = useRouter();
   const [fieldErrors, setFieldErrors] = useState<FieldErrors>({});
-
   const [formError, setFormError] = useState<string | null>(null);
-
   const [isLoading, setIsLoading] = useState(false);
 
   const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
@@ -69,8 +68,7 @@ const Login = () => {
 
       console.log("Login successful:", response);
 
-      // Example:
-      // router.replace("/dashboard");
+      router.replace("/dashboard");
     } catch (error) {
       if (error instanceof ApiError) {
         // Backend validation errors

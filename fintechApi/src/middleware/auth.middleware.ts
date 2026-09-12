@@ -9,7 +9,6 @@ export const authMiddleware = (
   next: NextFunction,
 ) => {
   const userId = request.session.userId;
-
   if (!userId) {
     return response
       .status(401)

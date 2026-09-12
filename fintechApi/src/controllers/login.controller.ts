@@ -1,4 +1,4 @@
-import { NextFunction,Request,Response } from "express";
+import { NextFunction, Request, Response } from "express";
 import { mockUsers } from "../data/mockData.js";
 import I18n from "../lib/I18n/errors.json" with { type: "json" };
 import argon2 from "argon2";
@@ -11,7 +11,16 @@ export const userLogin = async (
   const { email, password } = request.body;
   const user = mockUsers.find((user) => user.email === email);
   if (!user) {
-    return response.send(I18n.errors.USER_NOT_FOUND);
+    return response
+      .status(404)
+      .json(
+        new CustomError(
+          404,
+          "USER_NOT_FOUND",
+          I18n.errors.USER_NOT_FOUND,
+          false,
+        ),
+      );
   }
   try {
     const isValidPassword = await argon2.verify(user.passwordHash, password);
@@ -34,6 +43,7 @@ export const userLogin = async (
         id: user.id,
         name: user.name,
         email: user.email,
+        role: user.role,
       },
     });
   } catch (error) {

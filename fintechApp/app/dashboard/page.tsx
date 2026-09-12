@@ -1,9 +1,11 @@
 "use server";
+import { BalanceCard } from "@/components/BalanceCard";
+import { RiskBadge, StatusBadge } from "@/components/Components";
 import { CustomTable } from "@/components/Table";
+import { UserInfo } from "@/components/userInfo";
 import { mockTransactions } from "@/mock/data/transactions";
 import { mockUsers } from "@/mock/data/users";
 import { Transaction } from "@/types/Transactions";
-import { title } from "process";
 
 const Dashboard = async () => {
   const findUserBYId = (id: string) => {
@@ -11,32 +13,48 @@ const Dashboard = async () => {
   };
   const column = [
     {
-      title: "ID ",
-      selector: (item: Transaction) => <span>{item.id}</span>,
+      title: " ",
+      selector: (item: Transaction, index: number) => <span>{index + 1}</span>,
     },
     {
-      title: "Customer ",
+      title: "Customer",
       selector: (item: Transaction) => (
         <span>{findUserBYId(item.customerId)?.name}</span>
       ),
     },
     {
-      title: "Amount ",
+      title: "Amount",
       selector: (item: Transaction) => <span>{item.amount}</span>,
     },
     {
-      title: "Status ",
-      selector: (item: Transaction) => <span>{item.status}</span>,
+      title: "Currency",
+      selector: (item: Transaction) => <span>{item.currency}</span>,
+    },
+    {
+      title: "Status",
+      selector: (item: Transaction) => (
+        <StatusBadge $status={item.status}>{item.status}</StatusBadge>
+      ),
     },
     {
       title: "Risk ",
-      selector: (item: Transaction) => <span>{item.riskLevel}</span>,
+      selector: (item: Transaction) => (
+        <RiskBadge $status={item.riskLevel}>{item.riskLevel}</RiskBadge>
+      ),
     },
   ];
   return (
     <div>
-      <div className="w=[70%]">
-        <CustomTable data={mockTransactions} columns={column} />
+      <div>
+        <UserInfo />
+        <div className="flex justify-center">
+          <BalanceCard />
+        </div>
+        <h3 className="my-5">Recent transactions </h3>
+        <CustomTable
+          data={mockTransactions.reverse().slice(0, 10)}
+          columns={column}
+        />
       </div>
     </div>
   );

@@ -3,11 +3,34 @@
     "login": "Login",
     "logout": "Logout",
     "loading": "Loading...",
-    "empty":"Nothing is live right now."
+    "empty": "Nothing is live right now.",
+    "details": "Details",
+    "hideBalance": "Hide balance",
+    "showBalance": "Show balance"
   },
+
   "home": {
     "title": "Live markets",
     "empty": "Nothing is live right now.",
     "error": "Something went wrong."
+  },
+
+  "balanceCard": {
+    "availableBalance": "Available Balance",
+    "mainAccount": "Main account",
+    "currentBalance": "Current balance",
+    "accountNumber": "Account number",
+    "details": "Details"
+  },
+
+  "sideBar": {
+    "dashboard": "My Dashboard",
+    "transactions": "Transactions",
+    "accounts": "Accounts",
+    "profile": "Profile",
+    "settings": "Settings",
+    "logout": "Logout",
+    "users": "Users",
+    "auditLogs": "Audit Logs"
   }
 }

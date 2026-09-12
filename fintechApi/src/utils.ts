@@ -23,6 +23,6 @@ export class CustomError extends Error {
   }
 }
 
-const hash = await argon2.hash("password123");
+const hash = await argon2.hash("Parisadrb@2003");
 
 console.log(hash);
