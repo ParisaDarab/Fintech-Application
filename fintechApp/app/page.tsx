@@ -224,7 +224,6 @@ export default function Home() {
           {/* Right — Dashboard Preview */}
           <div className="relative">
             <div className="absolute -inset-10 rounded-full bg-cyan-400/10 blur-3xl" />
-
             <div
               className="
                 relative

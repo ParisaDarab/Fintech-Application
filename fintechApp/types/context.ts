@@ -1,7 +1,6 @@
 import { sidebarItem } from "@/mock/data/dashboard";
 import { User } from "./User";
 
-
 export type AuthContextType = {
   user: User | null;
   isAuthenticated: boolean;
@@ -15,6 +14,23 @@ export type ThemeContextType = {
   toggleTheme: () => void;
 };
 
+export type SidebarItem = (typeof sidebarItem)[number];
+
+export type ModalPosition = "center" | "top" | "bottom";
+
+export type ModalOptions = {
+  title?: string;
+  position?: ModalPosition;
+  className?: string;
+  children?: React.ReactNode;
+  showCloseButton?: boolean;
+  onClose?: () => void | React.ReactNode;
+};
+
 export type UIContextType = {
-  selectedSidebarItem: (typeof sidebarItem)[number] | undefined;
+  selectedSidebarItem: SidebarItem | undefined;
+
+  openModal: (options?: ModalOptions) => React.ReactNode;
+
+  closeModal: () => React.ReactNode;
 };

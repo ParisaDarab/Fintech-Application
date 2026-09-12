@@ -12,7 +12,7 @@ export const BalanceCard = () => {
         group relative
         w-full max-w-md
         overflow-hidden rounded-3xl
-        bg-gradient-to-br from-slate-950 via-slate-900 to-slate-800
+        bg-linear-to-br from-slate-950 via-slate-900 to-slate-800
         p-6 text-white
         shadow-2xl shadow-slate-900/20
         transition-all duration-300

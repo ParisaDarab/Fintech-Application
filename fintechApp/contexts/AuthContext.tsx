@@ -21,7 +21,7 @@ type AuthProviderProps = {
 export const AuthProvider = ({ children }: AuthProviderProps) => {
   const [user, setUser] = useState<User | null>(null);
   const [isLoading, setIsLoading] = useState(true);
-
+  console.log(user);
   const isAuthenticated = user !== null;
 
   const fetchCurrentUser = async () => {
