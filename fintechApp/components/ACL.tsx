@@ -24,7 +24,7 @@ export const ACL = ({
   if (isLoading) {
     return null;
   }
-
+  console.log(user, "user");
   // Routes in pathException don't require this ACL.
   if (pathException.includes(pathname)) {
     return <>{children}</>;

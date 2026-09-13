@@ -210,9 +210,7 @@
 @layer theme {
   :root, :host {
     --color-red-400: #ff6568;
-    --color-red-800: #9f0712;
     --color-amber-300: #ffd236;
-    --color-amber-500: #f99c00;
     --color-amber-600: #dd7400;
     --color-yellow-400: #fac800;
     --color-green-400: #05df72;
@@ -288,15 +286,12 @@
     --default-transition-timing-function: cubic-bezier(.4, 0, .2, 1);
     --default-font-family: var(--font-geist-sans);
     --default-mono-font-family: var(--font-geist-mono);
-    --color-customBgColor: var(--customBgColor);
   }
 
   @supports (color: lab(0% 0 0)) {
     :root, :host {
       --color-red-400: lab(63.7053% 60.7449 31.3109);
-      --color-red-800: lab(33.7174% 55.8993 41.0293);
       --color-amber-300: lab(86.4156% 6.13147 78.3961);
-      --color-amber-500: lab(72.7183% 31.8672 97.9407);
       --color-amber-600: lab(60.3514% 40.5624 87.1228);
       --color-yellow-400: lab(83.2664% 8.65132 106.895);
       --color-green-400: lab(78.503% -64.9265 39.7492);
@@ -689,7 +684,7 @@
     z-index: 50;
   }
 
-  .z-100, .z-\[100\] {
+  .z-100 {
     z-index: 100;
   }
 
@@ -881,10 +876,6 @@
     min-height: calc(100vh - 80px);
   }
 
-  .min-h-full {
-    min-height: 100%;
-  }
-
   .min-h-screen {
     min-height: 100vh;
   }
@@ -1007,10 +998,6 @@
 
   .transform {
     transform: var(--tw-rotate-x, ) var(--tw-rotate-y, ) var(--tw-rotate-z, ) var(--tw-skew-x, ) var(--tw-skew-y, );
-  }
-
-  .cursor-default {
-    cursor: default;
   }
 
   .cursor-pointer {
@@ -1216,10 +1203,6 @@
     background-color: var(--color-amber-300);
   }
 
-  .bg-amber-500 {
-    background-color: var(--color-amber-500);
-  }
-
   .bg-amber-600 {
     background-color: var(--color-amber-600);
   }
@@ -1242,10 +1225,6 @@
     .bg-black\/40 {
       background-color: color-mix(in oklab, var(--color-black) 40%, transparent);
     }
-  }
-
-  .bg-customBgColor {
-    background-color: var(--color-customBgColor);
   }
 
   .bg-cyan-400\/5 {
@@ -1330,10 +1309,6 @@
     .bg-red-400\/70 {
       background-color: color-mix(in oklab, var(--color-red-400) 70%, transparent);
     }
-  }
-
-  .bg-red-800 {
-    background-color: var(--color-red-800);
   }
 
   .bg-slate-50\/80 {
@@ -2421,34 +2396,32 @@
 }
 
 :root {
-  --background: #fff;
-  --foreground: #171717;
-  --hoveredBackgound: #e0f2fe;
-  --hoveredTextColor: #3b82f6;
-  --customBgColor: #ededf2;
+  --color-sidebar: #020617;
+  --color-text-secondary: #64748b;
+  --color-text-muted: #94a3b8;
+  --color-primary: #22d3ee;
+  --color-primary-hover: #06b6d4;
+  --color-sidebar-text: #94a3b8;
+  --color-sidebar-hover: #ffffff0d;
+  --color-sidebar-active: #22d3ee1a;
+  --color-body: #f8fafc;
+  --color-text-primary: #0f172a;
+  --color-card: #fff;
+  --color-border: #e2e8f0;
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #060b25;
-    --foreground: #ededed;
-  }
-
-  body {
-    background-color: var(--background);
-    color: #fff;
+    --color-body: #eef2f7;
+    --color-card: #fff;
+    --color-sidebar: #0b1120;
+    --color-text-primary: #0f172a;
   }
 }
 
-@media (prefers-color-scheme: light) {
-  :root {
-    --background: #ededed;
-    --foreground: #0a0a0a;
-  }
-
-  body {
-    background-color: var(--background);
-  }
+body {
+  color: var(--color-text-primary);
+  background: radial-gradient(circle at 88% -8%, #6366f11f 0%, #554de7b3 20%, #0000 48%), radial-gradient(circle at 8% 92%, #38bdf80e 0%, #0000 42%), linear-gradient(135deg, #f8fafc 0%, #eef2f7 45%, #e9eef5 100%);
 }
 
 @font-face {
@@ -2501,15 +2474,17 @@ small {
 }
 
 #logo {
-  letter-spacing: -.04em;
-  background: linear-gradient(135deg, #0c2661, #71cfef, #0c296f);
+  letter-spacing: -.055em;
+  background: linear-gradient(135deg, #fff 0%, #909092 45%, #67e8f9 100%);
   -webkit-text-fill-color: transparent;
   color: #0000;
+  text-shadow: 0 0 24px #22d3ee14;
   -webkit-background-clip: text;
   background-clip: text;
-  font-family: Georgia, Times New Roman, Times, serif;
+  font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, sans-serif;
   font-size: 2rem;
   font-weight: 800;
+  line-height: 1;
 }
 
 ::-webkit-scrollbar {

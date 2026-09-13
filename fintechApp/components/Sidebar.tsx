@@ -42,7 +42,7 @@ export const Sidebar = () => {
       {/* Sidebar */}
       <aside
         className={`
-    fixed inset-y-0 left-0 z-40 min-w-64 bg-white
+    fixed inset-y-0 left-0 z-40 min-w-64 bg-slate-950
     transform transition-transform duration-300 ease-in-out
     lg:static lg:h-full lg:translate-x-0
     ${isOpen ? "translate-x-0" : "-translate-x-full"}

@@ -19,6 +19,7 @@ import {
   validatePassword,
 } from "@/utilities/validate";
 import { useRouter } from "next/navigation";
+import { useAuth } from "@/contexts/AuthContext";
 
 type FieldErrors = {
   email?: string;
@@ -32,7 +33,7 @@ const Login = () => {
   const router = useRouter();
   const [fieldErrors, setFieldErrors] = useState<FieldErrors>({});
   const [formError, setFormError] = useState<string | null>(null);
-  const [isLoading, setIsLoading] = useState(false);
+  const { isLoading, login } = useAuth();
 
   const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
@@ -53,20 +54,8 @@ const Login = () => {
 
       return;
     }
-
     try {
-      setIsLoading(true);
-
-      const response = await clientApi({
-        ...apiList.authentication.login,
-        body: {
-          email,
-          password,
-          rememberMe,
-        },
-      });
-
-      console.log("Login successful:", response);
+      await login(email, password);
 
       router.replace("/dashboard");
     } catch (error) {
@@ -110,8 +99,6 @@ const Login = () => {
 
       // Unexpected error
       setFormError("Something went wrong. Please try again.");
-    } finally {
-      setIsLoading(false);
     }
   };
 

@@ -7,6 +7,7 @@ export type AuthContextType = {
   isLoading: boolean;
   login: (email: string, password: string) => Promise<void>;
   logout: () => Promise<void>;
+  fetchCurrentUser: () => Promise<void>;
 };
 
 export type ThemeContextType = {
