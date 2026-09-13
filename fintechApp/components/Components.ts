@@ -11,37 +11,41 @@ export const SearchButton = styled.button`
   }
 `;
 
-export const SidebarItem = styled.div<{ $selected?: boolean }>`
-  padding: 0.5rem 1.5rem;
-  border-radius: 0.375rem;
+export const SidebarItem = styled.div<{ selected?: boolean }>`
   display: flex;
   align-items: center;
   gap: 0.5rem;
 
-  color: ${({ $selected }) => ($selected ? "#3b82f6" : "#6b7280")};
+  width: 100%;
+  padding: 0.625rem 1.5rem;
 
-  background-color: ${({ $selected }) =>
-    $selected ? "#e0f2fe" : "transparent"};
+  color: ${({ selected }) => (selected ? "#ffffff" : "#94a3b8")};
+
+  background: ${({ selected }) =>
+    selected ? "rgba(34, 211, 238, 0.10)" : "transparent"};
+
+  border-right: ${({ selected }) =>
+    selected ? "2px solid #22d3ee" : "2px solid transparent"};
 
   transition:
-    background-color 0.2s ease,
-    color 0.2s ease;
+    background-color 200ms ease,
+    color 200ms ease,
+    border-color 200ms ease;
 
   .sidebar-icon {
     display: inline-flex;
-    transition: transform 0.2s ease;
+    transition: transform 200ms ease;
   }
 
   &:hover {
-    background-color: #e0f2fe;
-    color: #3b82f6;
+    color: #ffffff;
+    background: rgba(255, 255, 255, 0.05);
 
     .sidebar-icon {
-      transform: scale(1.15);
+      transform: translateX(2px) scale(1.05);
     }
   }
 `;
-
 export const Container = styled.div<{ $direction: "row" | "column" }>`
   display: flex;
   justify-content: center;

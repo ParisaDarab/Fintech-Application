@@ -349,8 +349,7 @@ const AuthContext = /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project
 const AuthProvider = ({ children })=>{
     _s();
     const [user, setUser] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])(null);
-    const [isLoading, setIsLoading] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])(true);
-    console.log(user);
+    const [isLoading, setIsLoading] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])(false);
     const isAuthenticated = user !== null;
     const fetchCurrentUser = async ()=>{
         try {
@@ -365,21 +364,21 @@ const AuthProvider = ({ children })=>{
             setIsLoading(false);
         }
     };
-    (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useEffect"])({
-        "AuthProvider.useEffect": ()=>{
-            fetchCurrentUser();
-        }
-    }["AuthProvider.useEffect"], []);
     const login = async (email, password)=>{
-        const response = await (0, __TURBOPACK__imported__module__$5b$project$5d2f$api$2f$clientApi$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"])({
-            method: "POST",
-            url: "/auth/login",
-            body: {
-                email,
-                password
-            }
-        });
-        setUser(response);
+        setIsLoading(true);
+        try {
+            const response = await (0, __TURBOPACK__imported__module__$5b$project$5d2f$api$2f$clientApi$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"])({
+                method: "POST",
+                url: "/auth/login",
+                body: {
+                    email,
+                    password
+                }
+            });
+            setUser(response.data);
+        } finally{
+            setIsLoading(false);
+        }
     };
     const logout = async ()=>{
         await (0, __TURBOPACK__imported__module__$5b$project$5d2f$api$2f$clientApi$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"])({
@@ -394,16 +393,17 @@ const AuthProvider = ({ children })=>{
             isAuthenticated,
             isLoading,
             login,
-            logout
+            logout,
+            fetchCurrentUser
         },
         children: children
     }, void 0, false, {
         fileName: "[project]/contexts/AuthContext.tsx",
-        lineNumber: 69,
+        lineNumber: 70,
         columnNumber: 5
     }, ("TURBOPACK compile-time value", void 0));
 };
-_s(AuthProvider, "YajQB7LURzRD+QP5gw0+K2TZIWA=");
+_s(AuthProvider, "Zl4aE56CGbXdDoToH9D5SNkGHyo=");
 _c = AuthProvider;
 const useAuth = ()=>{
     _s1();

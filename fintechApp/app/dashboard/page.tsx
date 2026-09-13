@@ -3,11 +3,13 @@ import { BalanceCard } from "@/components/BalanceCard";
 import { RiskBadge, StatusBadge } from "@/components/Components";
 import { CustomTable } from "@/components/Table";
 import { UserInfo } from "@/components/userInfo";
+import { useAuth } from "@/contexts/AuthContext";
 import { mockTransactions } from "@/mock/data/transactions";
 import { mockUsers } from "@/mock/data/users";
 import { Transaction } from "@/types/Transactions";
 
 const Dashboard = async () => {
+
   const findUserBYId = (id: string) => {
     return mockUsers.find((user) => user.id === id);
   };
