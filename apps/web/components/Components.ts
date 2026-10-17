@@ -11,7 +11,7 @@ export const SearchButton = styled.button`
   }
 `;
 
-export const SidebarItem = styled.div<{ selected?: boolean }>`
+export const SidebarItem = styled.div<{ $selected?: boolean }>`
   display: flex;
   align-items: center;
   gap: 0.5rem;
@@ -19,13 +19,13 @@ export const SidebarItem = styled.div<{ selected?: boolean }>`
   width: 100%;
   padding: 0.625rem 1.5rem;
 
-  color: ${({ selected }) => (selected ? "#ffffff" : "#94a3b8")};
+  color: ${({ $selected }) => ($selected ? "#ffffff" : "#94a3b8")};
 
-  background: ${({ selected }) =>
-    selected ? "rgba(34, 211, 238, 0.10)" : "transparent"};
+  background: ${({ $selected }) =>
+    $selected ? "rgba(34, 211, 238, 0.10)" : "transparent"};
 
-  border-right: ${({ selected }) =>
-    selected ? "2px solid #22d3ee" : "2px solid transparent"};
+  border-right: ${({ $selected }) =>
+    $selected ? "2px solid #22d3ee" : "2px solid transparent"};
 
   transition:
     background-color 200ms ease,
