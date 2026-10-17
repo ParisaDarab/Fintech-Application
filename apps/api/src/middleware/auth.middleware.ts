@@ -1,5 +1,5 @@
 import { CustomError } from "../models/error.js";
-import I18n from "../lib/I18n/errors.json" with { type: "json" };
+import { I18nError as I18n } from "@fintech/i18n";
 import type { NextFunction, Request, Response } from "express";
 import { mockUsers } from "../data/mockData.js";
 

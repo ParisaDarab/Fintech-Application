@@ -1,6 +1,6 @@
 import type { Request, Response } from "express";
 import { CustomError } from "../models/error.js";
-import I18nError from "../lib/I18n/errors.json" with { type: "json" };
+import { I18nError } from "@fintech/i18n";
 import I18n from "../lib/I18n/en.json" with { type: "json" };
 
 import { CustomApiResponse } from "../models/response.js";

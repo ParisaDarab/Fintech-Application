@@ -1,6 +1,6 @@
 import { NextFunction, Request, Response } from "express";
 import { mockUsers } from "../data/mockData.js";
-import I18nError from "../lib/I18n/errors.json" with { type: "json" };
+import { I18nError } from "@fintech/i18n";
 import I18n from "../lib/I18n/en.json" with { type: "json" };
 import argon2 from "argon2";
 import { CustomError } from "../models/error.js";
