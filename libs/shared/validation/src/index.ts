@@ -1,3 +1,6 @@
+// Input validation rules shared by apps/web (forms) and apps/api (requests).
+// Pure functions only: no DOM, React or Express code, so both apps can use them.
+
 // Kept as separate small regexes per rule (rather than one combined
 // pattern) so validation errors can say exactly what's wrong, e.g. "needs
 // a number" instead of a generic "invalid password".

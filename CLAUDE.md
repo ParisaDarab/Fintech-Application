@@ -11,6 +11,8 @@ This is an Nx monorepo (npm workspaces):
 - Frontend (Next.js): `apps/web` — Nx project `web`
 - Backend API (Express): `apps/api` — Nx project `api`
 - Shared request/response contract types: `libs/shared/api-contracts` — Nx project `api-contracts`
+- All user-facing text (errors, API success messages, web UI): `libs/shared/i18n` — Nx project `i18n`
+- Input validation rules: `libs/shared/validation` — Nx project `validation`
 
 Apps must not import from each other. Code shared between apps belongs in `libs/`.
 Install dependencies from the repo root only (`npm install <pkg> -w @fintech/<project>`).

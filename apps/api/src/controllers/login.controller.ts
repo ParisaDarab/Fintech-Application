@@ -1,7 +1,6 @@
 import { NextFunction, Request, Response } from "express";
 import { mockUsers } from "../data/mockData.js";
-import { I18nError as I18n } from "@fintech/i18n";
-import I18nSuccess from "../lib/I18n/en.json" with { type: "json" };
+import { I18nError as I18n, I18nSuccess } from "@fintech/i18n";
 import argon2 from "argon2";
 import { CustomError } from "../models/error.js";
 import { CustomApiResponse } from "../models/response.js";
