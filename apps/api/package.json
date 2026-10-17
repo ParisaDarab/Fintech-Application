@@ -11,6 +11,8 @@
   },
   "dependencies": {
     "@fintech/api-contracts": "*",
+    "@fintech/i18n": "*",
+    "@fintech/validation": "*",
     "argon2": "^0.45.1",
     "express": "^5.2.1",
     "express-session": "^1.19.0",

@@ -1,7 +1,7 @@
 import type { Request, Response } from "express";
 import { CustomError } from "../models/error.js";
-import I18nError from "../lib/I18n/errors.json" with { type: "json" };
-import I18n from "../lib/I18n/en.json" with { type: "json" };
+import { I18nError as I18n } from "@fintech/i18n";
+import I18nSuccess from "../lib/I18n/en.json" with { type: "json" };
 
 import { CustomApiResponse } from "../models/response.js";
 export const userLogout = (request: Request, response: Response) => {
@@ -13,7 +13,7 @@ export const userLogout = (request: Request, response: Response) => {
           new CustomError(
             500,
             "INTERNAL_SERVER_ERROR",
-            I18nError.errors.INTERNAL_SERVER_ERROR,
+            I18n.errors.INTERNAL_SERVER_ERROR,
             false,
           ),
         );
@@ -28,7 +28,7 @@ export const userLogout = (request: Request, response: Response) => {
         new CustomApiResponse(
           204,
           "LOGOUT_SUCCESS",
-          I18n.success.LOGOUT_SUCCESS,
+          I18nSuccess.success.LOGOUT_SUCCESS,
           true,
           {},
         ),
