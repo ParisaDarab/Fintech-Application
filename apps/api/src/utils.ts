@@ -1,6 +1,6 @@
 import argon2 from "argon2";
 // import { CustomError } from "./models/error.js";
-import I18n from "../src/lib/I18n/errors.json" with { type: "json" };
+import { I18nError as I18n } from "@fintech/i18n";
 export class CustomError extends Error {
   public statusCode: number;
   public code: string;

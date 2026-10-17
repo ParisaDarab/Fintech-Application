@@ -1,4 +1,4 @@
-import I18N from "@/lib/I18n/en.json";
+import { I18nUI as I18N } from "@fintech/i18n";
 import {
   ArrowRightLeft,
   ClipboardClock,

@@ -3,7 +3,7 @@
 import Link from "next/link";
 import type { FormEvent } from "react";
 import { useState } from "react";
-import I18n from "@/lib/I18n/error.json";
+import { I18nError as I18n } from "@fintech/i18n";
 import clientApi from "@/api/clientApi";
 import { apiList } from "@/api/apiList";
 import { Button } from "@/components/Button";
@@ -17,7 +17,7 @@ import {
   PASSWORD_RULE_LABELS,
   validateEmail,
   validatePassword,
-} from "@/utilities/validate";
+} from "@fintech/validation";
 import { useRouter } from "next/navigation";
 import { useAuth } from "@/contexts/AuthContext";
 

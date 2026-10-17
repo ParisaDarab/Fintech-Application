@@ -9,6 +9,8 @@ apps/
 libs/
   shared/
     api-contracts/      Types shared by web and api (Nx project: api-contracts)
+    i18n/               All user-facing text: errors, API success messages, web UI (Nx project: i18n)
+    validation/         Input validation rules, e.g. email/password (Nx project: validation)
 nx.json                 Nx task settings (caching, task order)
 tsconfig.base.json      TypeScript options every project extends
 package.json            npm workspaces + root scripts

@@ -1,6 +1,6 @@
 import React from "react";
 import { Container } from "./Components";
-import I18n from "@/lib/I18n/en.json";
+import { I18nUI as I18n } from "@fintech/i18n";
 
 type EmptyListProps = {
   text?: string;

@@ -1,7 +1,6 @@
 import type { Request, Response } from "express";
 import { CustomError } from "../models/error.js";
-import { I18nError as I18n } from "@fintech/i18n";
-import I18nSuccess from "../lib/I18n/en.json" with { type: "json" };
+import { I18nError as I18n, I18nSuccess } from "@fintech/i18n";
 
 import { CustomApiResponse } from "../models/response.js";
 export const userLogout = (request: Request, response: Response) => {

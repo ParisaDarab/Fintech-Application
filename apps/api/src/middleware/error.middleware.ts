@@ -1,7 +1,7 @@
 import type { Request, Response, NextFunction } from "express";
 import Joi from "joi";
 import { CustomError } from "../models/error.js";
-import I18n from "../lib/I18n/errors.json" with { type: "json" };
+import { I18nError as I18n } from "@fintech/i18n";
 export const errorMiddleware = (
   error: unknown,
   _req: Request,
