@@ -6,9 +6,14 @@ This is a full-stack web application built with:
 - Node.js + Express for the backend API
 - REST APIs for communication between the frontend and backend
 
-The frontend is located in `fintechApp`.
+This is an Nx monorepo (npm workspaces):
 
-The backend APIs are located in `fintechApi`.
+- Frontend (Next.js): `apps/web` — Nx project `web`
+- Backend API (Express): `apps/api` — Nx project `api`
+- Shared request/response contract types: `libs/shared/api-contracts` — Nx project `api-contracts`
+
+Apps must not import from each other. Code shared between apps belongs in `libs/`.
+Install dependencies from the repo root only (`npm install <pkg> -w @fintech/<project>`).
 
 ## Engineering Principles
 
@@ -60,21 +65,25 @@ For new business logic:
 Before considering a task complete, run the relevant checks, such as:
 
 ```bash
-npm run test
 npm run lint
+npm run typecheck
 npm run build
 ```
 
-Also check for TypeScript errors.
+Or only for projects affected by the change: `npx nx affected -t lint typecheck build`.
 
 ## Available Commands
 
 ```bash
-npm run dev
+npm run dev          # web + api
+npx nx dev web       # one project
 npm run build
-npm run test
 npm run lint
+npm run typecheck
+npm run graph        # project dependency graph
 ```
+
+No test runner is set up yet.
 
 ## Definition of Done
 

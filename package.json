@@ -1,0 +1,19 @@
+{
+  "name": "@fintech/source",
+  "version": "0.0.0",
+  "private": true,
+  "workspaces": [
+    "apps/*",
+    "libs/*/*"
+  ],
+  "scripts": {
+    "dev": "nx run-many -t dev",
+    "build": "nx run-many -t build",
+    "lint": "nx run-many -t lint",
+    "typecheck": "nx run-many -t typecheck",
+    "graph": "nx graph"
+  },
+  "devDependencies": {
+    "nx": "23.3.0"
+  }
+}
