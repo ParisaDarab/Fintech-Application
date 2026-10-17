@@ -1,16 +1,21 @@
-export class CustomError extends Error {
+import type {
+  ApiErrorDetail,
+  ApiErrorResponse,
+} from "@fintech/api-contracts";
+
+export class CustomError extends Error implements ApiErrorResponse {
   public statusCode: number;
   public error: { [key: string]: string };
   public success: boolean;
   public message: string;
-  public detail?: { [key: string]: string | undefined }[];
+  public detail?: ApiErrorDetail[];
 
   constructor(
     statusCode: number,
     type: string,
     message: string,
     success: boolean,
-    detail?: { [key: string]: string | undefined }[],
+    detail?: ApiErrorDetail[],
   ) {
     super(message);
 

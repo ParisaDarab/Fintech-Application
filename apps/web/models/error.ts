@@ -1,16 +1,10 @@
-export type ApiErrorDetail = {
-  [key: string]: string | undefined;
-};
+import type {
+  ApiErrorDetail,
+  ApiErrorResponse,
+} from "@fintech/api-contracts";
 
-export type ApiErrorResponse = {
-  statusCode: number;
-  error: {
-    [key: string]: string;
-  };
-  message: string;
-  success: boolean;
-  detail?: ApiErrorDetail[];
-};
+// Re-exported so existing imports from "@/models/error" keep working.
+export type { ApiErrorDetail, ApiErrorResponse };
 
 export class ApiError extends Error {
   public statusCode: number;

@@ -1,4 +1,6 @@
-export class CustomApiResponse<T> {
+import type { ApiResponse } from "@fintech/api-contracts";
+
+export class CustomApiResponse<T> implements ApiResponse<T> {
   public success;
   public statusCode;
   public type;
