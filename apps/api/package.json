@@ -12,8 +12,10 @@
   "dependencies": {
     "@fintech/api-contracts": "*",
     "@fintech/i18n": "*",
+    "@fintech/types": "^0.0.1",
     "@fintech/validation": "*",
     "argon2": "^0.45.1",
+    "dotenv": "^18.0.9",
     "express": "^5.2.1",
     "express-session": "^1.19.0",
     "joi": "^18.2.5"
@@ -22,8 +24,7 @@
     "@types/express": "^5.0.6",
     "@types/express-session": "^1.19.0",
     "@types/node": "^26.4.0",
-    "tsx": "^4.23.13",
-    "typescript": "^7.0.2"
+    "tsx": "^4.23.13"
   },
   "nx": {
     "name": "api",

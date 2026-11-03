@@ -10,6 +10,7 @@ export type TransactionType =
 export interface Transaction {
   id: string;
   accountId: string;
+  userId: string;
   merchant: string;
   amount: number;
   currency: string;

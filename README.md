@@ -27,16 +27,20 @@ cp apps/api/src/config/.env.example apps/api/src/config/.env  # then set SESSION
 
 ## Commands
 
-| What | Command |
-| --- | --- |
-| Run web + api together | `npm run dev` |
-| Run one app | `npx nx dev web` / `npx nx dev api` |
-| Build everything | `npm run build` |
-| Build one project | `npx nx build api` |
-| Lint / typecheck | `npm run lint` / `npm run typecheck` |
-| Only what changed vs `main` | `npx nx affected -t build lint typecheck` |
-| See project dependency graph | `npm run graph` |
-| List projects | `npx nx show projects` |
+| What                                      | Command                                                                        |
+| ----------------------------------------- | ------------------------------------------------------------------------------ |
+| Run web + api together                    | `npm run dev`                                                                  |
+| Run one app                               | `npx nx dev web` / `npx nx dev api`                                            |
+| Build everything                          | `npm run build`                                                                |
+| Build one project                         | `npx nx build api`                                                             |
+| Lint / typecheck                          | `npm run lint` / `npm run typecheck`                                           |
+| Only what changed vs `main`               | `npx nx affected -t build lint typecheck`                                      |
+| See project dependency graph              | `npm run graph`                                                                |
+| List projects                             | `npx nx show projects`                                                         |
+| Create shared packages                    | `npx nx g @nx/js:lib libs/shared/--package name--`                             |
+| Install internal package for each project | `npm install @myorg/validation --workspace=--project name e.g. @fintech/web--` |
+
+
 
 Web runs on http://localhost:3000 and proxies `/api/*` to the API on port 5000.
 

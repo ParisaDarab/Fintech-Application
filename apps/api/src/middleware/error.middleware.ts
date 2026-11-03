@@ -19,7 +19,13 @@ export const errorMiddleware = (
     return res
       .status(400)
       .json(
-        new CustomError(400, "VALIDATION_ERROR", error.message, false, details),
+        new CustomError(
+          400,
+          I18n.errors.VALIDATION_ERROR,
+          error.message,
+          false,
+          details,
+        ),
       );
   }
   {

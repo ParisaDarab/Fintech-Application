@@ -8,7 +8,7 @@ export const authMiddleware = (
   response: Response,
   next: NextFunction,
 ) => {
-  const userId = request.session.userId;
+  const userId = request.session.user?.userId;
   if (!userId) {
     return response
       .status(401)
@@ -26,12 +26,12 @@ export const authMiddleware = (
 
   if (!user) {
     return response
-      .status(401)
+      .status(404)
       .json(
         new CustomError(
           401,
-          "AUTHENTICATION_ERROR",
-          I18n.errors.AUTHENTICATION_ERROR,
+          "USER_NOT_FOUND",
+          I18n.errors.USER_NOT_FOUND,
           false,
         ),
       );

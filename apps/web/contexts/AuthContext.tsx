@@ -23,12 +23,11 @@ export const AuthProvider = ({ children }: AuthProviderProps) => {
   const [user, setUser] = useState<User | null>(null);
   const [isLoading, setIsLoading] = useState(false);
   const isAuthenticated = user !== null;
-
   const fetchCurrentUser = async () => {
     try {
       const currentUser = await clientApi<User>({
         method: "GET",
-        url: "/me",
+        endpoint: "/me",
       });
 
       setUser(currentUser);
@@ -45,7 +44,7 @@ export const AuthProvider = ({ children }: AuthProviderProps) => {
     try {
       const response = await clientApi<responseType>({
         method: "POST",
-        url: "/auth/login",
+        endpoint: "/auth/login",
         body: {
           email,
           password,
@@ -60,7 +59,7 @@ export const AuthProvider = ({ children }: AuthProviderProps) => {
   const logout = async (): Promise<void> => {
     await clientApi<void>({
       method: "POST",
-      url: "/auth/logout",
+      endpoint: "/auth/logout",
     });
 
     setUser(null);

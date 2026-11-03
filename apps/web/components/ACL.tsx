@@ -1,8 +1,10 @@
 "use client";
 
+import { Button, CenteralizerInColumn } from "@/app/style/styledComponents";
 import { useAuth } from "@/contexts/AuthContext";
+import Link from "next/link";
 import { usePathname } from "next/navigation";
-import type { ReactNode } from "react";
+import { useEffect, type ReactNode } from "react";
 
 type RequiredRole = "admin" | "user" | "guest" | "superAdmin";
 
@@ -18,13 +20,17 @@ export const ACL = ({
   pathException = [],
 }: ACLProps) => {
   const pathname = usePathname();
-  const { user, isLoading } = useAuth();
+  const { user, isLoading, fetchCurrentUser } = useAuth();
   // Don't make an authorization decision before
   // authentication state has been restored.
+
+  useEffect(() => {
+    fetchCurrentUser();
+  }, []);
+
   if (isLoading) {
     return null;
   }
-  console.log(user, "user");
   // Routes in pathException don't require this ACL.
   if (pathException.includes(pathname)) {
     return <>{children}</>;
@@ -32,7 +38,14 @@ export const ACL = ({
 
   // User is not authenticated.
   if (!user) {
-    return null;
+    return (
+      <CenteralizerInColumn>
+        <p>The current user does not have access for further action ! </p>
+        <Button>
+          <Link href={"/login"}>Back to login</Link>
+        </Button>
+      </CenteralizerInColumn>
+    );
   }
 
   // User doesn't have the required role.

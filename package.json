@@ -8,12 +8,24 @@
   ],
   "scripts": {
     "dev": "nx run-many -t dev",
+    "dev:web": "nx dev web",
+    "dev:api": "nx dev api",
     "build": "nx run-many -t build",
     "lint": "nx run-many -t lint",
     "typecheck": "nx run-many -t typecheck",
     "graph": "nx graph"
   },
   "devDependencies": {
-    "nx": "23.3.0"
+    "@nx/js": "^23.3.0",
+    "@swc/helpers": "~0.5.18",
+    "@types/node": "^22.0.0",
+    "nx": "23.3.0",
+    "tslib": "^2.3.0",
+    "typescript": "~6.0.3",
+    "verdaccio": "^6.3.2"
+  },
+  "dependencies": {},
+  "nx": {
+    "includedScripts": []
   }
 }

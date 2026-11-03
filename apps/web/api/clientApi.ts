@@ -3,18 +3,18 @@ import { ApiError, type ApiErrorResponse } from "../models/error";
 
 export type ClientApiProps = {
   method?: string;
-  url: string;
+  endpoint: string;
   headers?: HeadersInit;
   credentials?: RequestCredentials;
   body?: unknown;
   token?: string;
 };
 
-const BASE_URL = "/api";
+const BASE_URL = "/api/v1";
 
 export default async function clientApi<T>({
   method = "GET",
-  url,
+  endpoint,
   headers,
   credentials = "include",
   body,
@@ -38,7 +38,7 @@ export default async function clientApi<T>({
     requestHeaders.set("Authorization", `Bearer ${token}`);
   }
 
-  const response = await fetch(`${BASE_URL}${url}`, {
+  const response = await fetch(`${BASE_URL}${endpoint}`, {
     method,
     headers: requestHeaders,
     credentials,

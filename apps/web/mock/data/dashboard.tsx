@@ -2,6 +2,7 @@ import { I18nUI as I18N } from "@fintech/i18n";
 import {
   ArrowRightLeft,
   ClipboardClock,
+  CreditCardCheck,
   LayoutDashboard,
   Settings,
   SquareUserRound,
@@ -19,6 +20,12 @@ export const sidebarItem = [
     title: I18N.sideBar.accounts,
     url: "/dashboard/accounts",
     icon: SquareUserRound,
+  },
+  {
+    id: "Cards",
+    title: I18N.sideBar.cards,
+    url: "/dashboard/cards",
+    icon: CreditCardCheck,
   },
   {
     id: "transitions",

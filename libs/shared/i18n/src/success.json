@@ -5,6 +5,7 @@
     "USER_RETRIEVED": "User retrieved successfully.",
     "ACCOUNTS_RETRIEVED": "Accounts retrieved successfully.",
     "TRANSACTIONS_RETRIEVED": "Transactions retrieved successfully.",
-    "TRANSACTION_RETRIEVED": "Transaction retrieved successfully."
+    "TRANSACTION_RETRIEVED": "Transaction retrieved successfully.",
+    "CARDS_RETRIEVED": "Cards retrieved successfully."
   }
 }

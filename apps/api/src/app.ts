@@ -1,12 +1,14 @@
 import express from "express";
+import "dotenv/config";
 import authRoutes from "./routes/auth.routes.js";
 import meRoutes from "./routes/me.routes.js";
 import adminRoutes from "./routes/admin.routes.js";
+import CardsRoutes from "./routes/cards.routes.js";
 import { errorMiddleware } from "./middleware/error.middleware.js";
 import session from "express-session";
 
 const app = express();
-
+const apiRouter = express.Router();
 app.use(express.json());
 
 app.use(
@@ -43,13 +45,18 @@ app.get("/ready", async (req, res) => {
   }
 });
 
-app.use("/api/auth", authRoutes);
-app.use("/api/me", meRoutes);
-app.use("/api/admin", adminRoutes);
+// Register all routes inside the API router
+apiRouter.use("/auth", authRoutes);
+apiRouter.use("/me", meRoutes);
+apiRouter.use("/admin", adminRoutes);
+apiRouter.use("/cards", CardsRoutes);
+
+// Mount all API routes under the version prefix
+app.use(`/api/${process.env.API_VERSION}`, apiRouter);
+
 
 // 404 middleware
 // app.use(notFoundMiddleware);
-
 // Error middleware MUST be last
 app.use(errorMiddleware);
 

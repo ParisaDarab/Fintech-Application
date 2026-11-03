@@ -1,3 +1,4 @@
+
 import { Account } from "../types/account.js";
 import { Transaction } from "../types/transaction.js";
 import { User } from "../types/user.js";
@@ -50,6 +51,7 @@ export const mockTransactions: Transaction[] = [
   {
     id: "transaction-001",
     accountId: "account-001",
+    userId: "user-001",
     merchant: "Tesco",
     amount: -54.2,
     currency: "GBP",
@@ -60,6 +62,7 @@ export const mockTransactions: Transaction[] = [
   {
     id: "transaction-002",
     accountId: "account-001",
+    userId: "user-001",
     merchant: "Salary",
     amount: 3200.0,
     currency: "GBP",
@@ -70,6 +73,7 @@ export const mockTransactions: Transaction[] = [
   {
     id: "transaction-003",
     accountId: "account-001",
+    userId: "user-001",
     merchant: "Netflix",
     amount: -15.99,
     currency: "GBP",
@@ -80,6 +84,7 @@ export const mockTransactions: Transaction[] = [
   {
     id: "transaction-004",
     accountId: "account-001",
+    userId: "user-001",
     merchant: "Amazon",
     amount: -89.99,
     currency: "GBP",
@@ -90,6 +95,7 @@ export const mockTransactions: Transaction[] = [
   {
     id: "transaction-005",
     accountId: "account-001",
+    userId: "user-001",
     merchant: "John Smith",
     amount: 150.0,
     currency: "GBP",
@@ -100,6 +106,7 @@ export const mockTransactions: Transaction[] = [
   {
     id: "transaction-006",
     accountId: "account-001",
+    userId: "user-001",
     merchant: "Shell",
     amount: -62.4,
     currency: "GBP",
@@ -110,6 +117,7 @@ export const mockTransactions: Transaction[] = [
   {
     id: "transaction-007",
     accountId: "account-001",
+    userId: "user-001",
     merchant: "Uber",
     amount: -24.5,
     currency: "GBP",
@@ -120,11 +128,75 @@ export const mockTransactions: Transaction[] = [
   {
     id: "transaction-008",
     accountId: "account-001",
+    userId: "user-001",
     merchant: "Electricity Provider",
     amount: -120.0,
     currency: "GBP",
     status: "completed",
     type: "bill_payment",
     createdAt: "2026-07-18T11:00:00Z",
+  },
+];
+
+export const mockCardList = [
+  {
+    id: "card-001",
+    userId: "user-001",
+    accountId: "account-001",
+    cardNumber: "456856******4786",
+    expiryDate: "2029-10-31T10:43:00.000Z",
+    nameOnCard: "P DARAB",
+    cardType: "DEBIT",
+    cardNetwork: "VISA",
+    status: "ACTIVE",
+    currency: "GBP",
+    isDefault: true,
+    contactlessEnabled: true,
+    onlinePaymentsEnabled: true,
+    internationalPaymentsEnabled: false,
+    dailySpendingLimit: 1000,
+    dailyCashWithdrawalLimit: 250,
+    createdAt: "2025-10-15T09:30:00.000Z",
+    updatedAt: "2026-10-20T12:00:00.000Z",
+  },
+  {
+    id: "card-002",
+    userId: "user-001",
+    accountId: "account-002",
+    cardNumber: "523456******8912",
+    expiryDate: "2028-06-30T10:43:00.000Z",
+    nameOnCard: "P DARAB",
+    cardType: "DEBIT",
+    cardNetwork: "MASTERCARD",
+    status: "FROZEN",
+    currency: "GBP",
+    isDefault: false,
+    contactlessEnabled: true,
+    onlinePaymentsEnabled: false,
+    internationalPaymentsEnabled: false,
+    dailySpendingLimit: 500,
+    dailyCashWithdrawalLimit: 100,
+    createdAt: "2025-06-12T11:20:00.000Z",
+    updatedAt: "2026-10-25T14:00:00.000Z",
+  },
+  {
+    id: "card-003",
+    userId: "user-001",
+    accountId: "account-001",
+    cardNumber: "456856******3210",
+    expiryDate: "2029-03-31T10:43:00.000Z",
+    nameOnCard: "P DARAB",
+    cardType: "DEBIT",
+    cardNetwork: "VISA",
+    status: "BLOCKED",
+    currency: "GBP",
+    isDefault: false,
+    contactlessEnabled: false,
+    onlinePaymentsEnabled: false,
+    internationalPaymentsEnabled: false,
+    dailySpendingLimit: 0,
+    dailyCashWithdrawalLimit: 0,
+    createdAt: "2025-03-01T08:00:00.000Z",
+    updatedAt: "2026-09-15T16:30:00.000Z",
   },
 ];

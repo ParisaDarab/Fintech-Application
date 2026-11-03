@@ -37,7 +37,7 @@ export const userLogin = async (
           ),
         );
     }
-    request.session.userId = user.id;
+    request.session.user = {userId:user.id};
     return response.json(
       new CustomApiResponse(
         200,
